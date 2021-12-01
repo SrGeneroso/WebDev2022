@@ -1,5 +1,5 @@
 {
-  "name": "with-sveltekit-and-graphql-request",
+  "name": "webdev2022",
   "version": "0.0.1",
   "scripts": {
     "dev": "svelte-kit dev",
@@ -17,5 +17,8 @@
     "prettier-plugin-svelte": "^2.4.0",
     "svelte": "^3.42.6"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@fontsource/fira-mono": "^4.5.0"
+  }
 }
