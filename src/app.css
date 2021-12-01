@@ -1,0 +1,130 @@
+@import '@fontsource/fira-mono';
+
+@media (prefers-color-scheme: dark) {
+	body:not(.light) {
+		--pure-white: #ffffff;
+		--primary-color: #b9c6d2;
+		--secondary-color: #d0dde9;
+		--tertiary-color: #3B3B3B;
+		--accent-color: #4EEAC6;
+		--heading-color: rgba(0, 0, 0, 0.7);
+		--text-color: #444444;
+		--background-without-opacity: rgba(255, 255, 255, 0.7);
+		--nav-background:rgba(69, 69, 69, 0.8);
+	}
+}
+
+body.dark {
+	--pure-white: #ffffff;
+	--primary-color: #111111;
+	--secondary-color: #2b2b2b;
+	--tertiary-color: #3B3B3B;
+	--accent-color: #4EEAC6;
+	--heading-color: rgb(0, 0, 0);
+	--text-color: #ffffff;
+	--background-without-opacity: rgba(255, 255, 255, 0.7);
+	--nav-background:rgba(69, 69, 69, 0.8);
+}
+
+:root {
+	font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--pure-white: #ffffff;
+	--primary-color: #7733ffbb;
+	--secondary-color: #eef2f3;
+	--tertiary-color: #ffffff;
+	--accent-color: #7633FF;
+	--heading-color: rgba(0, 0, 0, 0.479);
+	--text-color: #000000;
+	--background-without-opacity: rgba(0, 195, 255, 0.7);
+	--nav-background:rgba(225, 225, 225, 0.8);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+}
+
+body {
+	min-height: 100vh;
+	margin: 0;
+	background-color: var(--primary-color);
+	background: linear-gradient(180deg,
+			var(--primary-color) 0%,
+			var(--secondary-color) 10%,
+			var(--tertiary-color) 20%);
+}
+
+body::before {
+	content: '';
+	width: 80vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 10vw;
+	z-index: -1;
+	background: radial-gradient(50% 50% at 50% 50%,
+			var(--pure-white) 0%,
+			rgba(255, 255, 255, 0) 100%);
+	opacity: 0.05;
+}
+
+#svelte {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1,
+h2,
+p {
+	font-weight: 400;
+	color: var(--text-color);
+}
+
+p {
+	line-height: 1.5;
+}
+
+a {
+	color: var(--accent-color);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+h2 {
+	font-size: 1rem;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	background-color: rgba(119, 117, 117, 0.45);
+	border-radius: 3px;
+	box-shadow: 2px 2px 6px rgb(0 0 0 / 25%);
+	padding: 0.5em;
+	overflow-x: auto;
+	color: var(--text-color);
+}
+
+input,
+button {
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+@media (min-width: 720px) {
+	h1 {
+		font-size: 2.4rem;
+	}
+}
