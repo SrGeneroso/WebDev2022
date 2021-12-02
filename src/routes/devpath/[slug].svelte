@@ -1,5 +1,6 @@
 <script context="module">
   import { GraphQLClient } from "graphql-request";
+
   export async function load(ctx) {
     const graphcms = new GraphQLClient(
       "https://api-eu-central-1.graphcms.com/v2/ckwgsqn0x0kb801xo4jwobqkg/master",
@@ -7,9 +8,10 @@
         headers: {},
       }
     );
+
     const { techs } = await graphcms.request(
-      `query multipleItems ($slug: String!) {
-        techs (where: {slug: $slug}){
+      `query multipleItems ($devPath: DevPath!) {
+        techs (where: {devPath: $devPath}){
           slug
           name
           descShort
@@ -21,7 +23,7 @@
         }
       }`,
       {
-        slug: ctx.page.params.slug,
+        devPath: ctx.page.params.slug,
       }
     );
     return {
@@ -30,10 +32,12 @@
       },
     };
   }
+  
 </script>
 
 <script>
   export let techs;
+  console.log(techs)
 </script>
 
 <svelte:head>
@@ -42,4 +46,8 @@
 
 <h1>Hello world from devpath</h1>
 
-<pre>{techs}</pre>
+{#each techs as tech}
+<img src={tech.image.url} alt="">  
+<p>{tech.name}</p>
+<p>{tech.descShort}</p>
+{/each}

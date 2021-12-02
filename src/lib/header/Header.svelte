@@ -14,7 +14,7 @@
 <header>
 	<div class="corner left">
 		<!-- TODO put url of Netlify deployment -->
-		<a href="https://github.com/SrGeneroso/WebDev-2022">
+		<a href="https://github.com/SrGeneroso/WebDev2022">
 			{#if $currentTheme === 'light'}
 				<img src="{logoWebdevLight}" alt="WebDev 2022" />
 			{:else}
@@ -46,7 +46,7 @@
 	<div class="corner right">
 		<ThemeButton />
 
-		<a href="https://github.com/SrGeneroso/WebDev-2022" target="_blank">			
+		<a href="https://github.com/SrGeneroso/WebDev2022" target="_blank">			
 			{#if $currentTheme === 'light'}
 				<img src="{logoGitLight}" alt="Repo WebDev 2022" />
 			{:else}

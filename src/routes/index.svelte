@@ -7,7 +7,7 @@
 
 <div class="timeline">
   <div class="container left">
-    <a href="/devpath/general">
+    <a href="/devpath/General">
       <div class="content">
         <h2>General</h2>
         <p>
@@ -17,7 +17,7 @@
     </a>
   </div>
   <div class="container right">
-    <a href="/devpath/frontend">
+    <a href="/devpath/FrontEnd">
       <div class="content">
         <h2>FrontEnd</h2>
         <p>
@@ -33,7 +33,7 @@
     </a>
   </div>
   <div class="container left">
-    <a href="/devpath/backend">
+    <a href="/devpath/BackEnd">
       <div class="content">
         <h2>BackEnd</h2>
         <p>
@@ -46,7 +46,7 @@
     </a>
   </div>
   <div class="container right">
-    <a href="/devpath/devops">
+    <a href="/devpath/DevOps">
       <div class="content">
         <h2>DevOps</h2>
         <p>
