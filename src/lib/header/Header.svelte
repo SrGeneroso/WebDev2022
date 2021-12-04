@@ -6,6 +6,7 @@
 	import logoGitDark from "./image/logo-git-dark.png";
 	import ThemeButton from "./themeButton.svelte";
 	import { currentTheme } from '../../stores.js';
+	
 
 
 
@@ -14,7 +15,7 @@
 <header>
 	<div class="corner left">
 		<!-- TODO put url of Netlify deployment -->
-		<a href="https://github.com/SrGeneroso/WebDev-2022">
+		<a href="https://webdev2022.netlify.app/">
 			{#if $currentTheme === 'light'}
 				<img src="{logoWebdevLight}" alt="WebDev 2022" />
 			{:else}
@@ -34,9 +35,9 @@
 			<li class:active={$page.path === "/about"}>
 				<a sveltekit:prefetch href="/about">About</a>
 			</li>
-			<li class:active={$page.path === "/map"}>
+			<!-- <li class:active={$page.path === "/map"}>
 				<a sveltekit:prefetch href="/map">Map</a>
-			</li>
+			</li> -->
 		</ul>
 		<svg viewBox="0 0 2 3" aria-hidden="true">
 			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
@@ -46,7 +47,7 @@
 	<div class="corner right">
 		<ThemeButton />
 
-		<a href="https://github.com/SrGeneroso/WebDev-2022" target="_blank">			
+		<a href="https://github.com/SrGeneroso/WebDev2022" target="_blank">			
 			{#if $currentTheme === 'light'}
 				<img src="{logoGitLight}" alt="Repo WebDev 2022" />
 			{:else}
