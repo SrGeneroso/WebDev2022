@@ -15,7 +15,7 @@
 <header>
 	<div class="corner left">
 		<!-- TODO put url of Netlify deployment -->
-		<a href="https://github.com/SrGeneroso/WebDev2022">
+		<a href="https://webdev2022.netlify.app/">
 			{#if $currentTheme === 'light'}
 				<img src="{logoWebdevLight}" alt="WebDev 2022" />
 			{:else}
