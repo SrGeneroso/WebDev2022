@@ -58,7 +58,7 @@
 </script>
 
 <script>
-  import {fly} from 'svelte/transition'
+  import TechCard from '$lib/techCard/TechCard.svelte';
   export let categories;
 </script>
 
@@ -78,38 +78,19 @@
       {#if category.branch[0].__typename == "Tech"}
 
         {#each category.branch as tech,i}
-          <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" >
-            <div class="card">
-              <div class="card-header">
-                <img src={tech.image.url} alt="Logotipo de {tech.name}" />
-              </div>
-              <div class="card-body">
-                <h4>{tech.name}</h4>
-                <p>{tech.descShort}</p>
-              </div>
-            </div>
-          </a>
+          <TechCard tech = {tech} i = {i}></TechCard>
         {/each}
 
       {:else}
         
         {#each category.branch as subCategory}
-         
-          <h3>{subCategory.name}</h3>
-          
-          {#each subCategory.branch as tech,i}
-            <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" >
-              <div class="card">
-                <div class="card-header">
-                  <img src={tech.image.url} alt="Logotipo de {tech.name}" />
-                </div>
-                <div class="card-body">
-                  <h4>{tech.name}</h4>
-                  <p>{tech.descShort}</p>
-                </div>
-              </div>
-            </a>
-          {/each}
+          <div class="subcategory">
+            <h3>{subCategory.name}</h3>
+            
+            {#each subCategory.branch as tech,i}
+              <TechCard tech = {tech} i = {i}></TechCard>  
+            {/each}
+          </div>
 
         {/each}
 
@@ -129,55 +110,10 @@
 }
 
 
-h4{
-  color: var(--text-color);
-}
-a:hover{
-  transform: scale(1.05);
-}
 .container {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-}
-.card {
-  margin: 0.5rem;
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  width: 15em;
-  
-}
-.card-header img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-.card-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px;
-  min-height: 250px;
-}
-
-.tag {
-  background: #cccccc;
-  border-radius: 50px;
-  font-size: 12px;
-  margin: 0;
-  color: #fff;
-  padding: 2px 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-
-.card-body p {
-  font-size: 13px;
-  margin: 0 0 40px;
 }
 
 
