@@ -1,45 +1,65 @@
 <script context="module">
   import { GraphQLClient } from "graphql-request";
-
+  
   export async function load(ctx) {
     const graphcms = new GraphQLClient(
       "https://api-eu-central-1.graphcms.com/v2/ckwgsqn0x0kb801xo4jwobqkg/master",
-      {
-        headers: {},
-      }
+      {headers: {}}
     );
 
-    const { techs } = await graphcms.request(
-      `query multipleItems ($devPath: DevPath!) {
-        techs (where: {devPath: $devPath}){
-          slug
+    const { categories } = await graphcms.request(
+      `query categories ($currentSlug: String) {
+        categories (where: {devPath: {name: $currentSlug}}){
           name
-          descShort
-          image {
-            url(transformation:{
-              image:{resize:{width: 300, height: 300, fit:scale}}
-            })
+          branch {
+            __typename
+            ... on Category {
+              id
+              name
+              branch {
+                ... on Tech {
+                  slug
+                  name
+                  descShort
+                  image {
+                    url(transformation:{
+                      image:{resize:{width: 300, height: 300, fit:scale}}
+                    })
+                  }
+                }
+              }
+            }
+            ... on Tech {
+              slug
+              name
+              descShort
+              image {
+                url(transformation:{
+                  image:{resize:{width: 300, height: 300, fit:scale}}
+                })
+              }
+            }
           }
         }
       }`,
       {
-        devPath: ctx.page.params.slug,
+        currentSlug: ctx.page.params.slug,
       }
     );
+
     return {
       props: {
-        techs,
-
+        categories,
       },
     };
+
   }
   
 </script>
 
 <script>
-  import {fade, fly} from 'svelte/transition'
-  export let techs;
-
+  import {fly} from 'svelte/transition'
+  export let categories;
 </script>
 
 <svelte:head>
@@ -47,25 +67,59 @@
 </svelte:head>
 
  
-  <div class="container" >
-
-    {#each techs as tech,i}
-    <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" out:fade>
-      <div class="card">
-        <div class="card-header">
-          <img src={tech.image.url} alt={tech.image.name} />
-        </div>
-        <div class="card-body">
-          <!-- <span class="tag tag-teal">{tech.name}</span> -->
-          <h4>{tech.name}</h4>
-          <p>{tech.descShort}</p>
-        </div>
-      </div>
-    </a>
-      
-    {/each}
+<div class="container" >
+  
+  {#each categories as category}
     
-  </div>
+    <div class="category">
+      
+      <h2>{category.name}</h2>
+
+      {#if category.branch[0].__typename == "Tech"}
+
+        {#each category.branch as tech,i}
+          <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" >
+            <div class="card">
+              <div class="card-header">
+                <img src={tech.image.url} alt="Logotipo de {tech.name}" />
+              </div>
+              <div class="card-body">
+                <h4>{tech.name}</h4>
+                <p>{tech.descShort}</p>
+              </div>
+            </div>
+          </a>
+        {/each}
+
+      {:else}
+        
+        {#each category.branch as subCategory}
+         
+          <h3>{subCategory.name}</h3>
+          
+          {#each subCategory.branch as tech,i}
+            <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" >
+              <div class="card">
+                <div class="card-header">
+                  <img src={tech.image.url} alt="Logotipo de {tech.name}" />
+                </div>
+                <div class="card-body">
+                  <h4>{tech.name}</h4>
+                  <p>{tech.descShort}</p>
+                </div>
+              </div>
+            </a>
+          {/each}
+
+        {/each}
+
+      {/if}
+      
+    </div>
+
+  {/each}
+
+</div>
 
 <style>
   @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");

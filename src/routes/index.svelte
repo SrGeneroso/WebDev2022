@@ -1,3 +1,32 @@
+<script context="module">
+  import { GraphQLClient } from "graphql-request";
+
+  export async function load(ctx) {
+    const graphcms = new GraphQLClient(
+      "https://api-eu-central-1.graphcms.com/v2/ckwgsqn0x0kb801xo4jwobqkg/master",
+      {headers: {}}
+    );
+
+    const { devPaths } = await graphcms.request(
+      `query devPaths {
+        devPaths(orderBy: order_ASC) {
+          name
+          order
+          description
+        }
+      }`,
+    );
+    return {
+      props: {
+        devPaths,
+      },
+    };
+  }
+</script>
+
+<script>
+  export let devPaths;
+</script>
 
 <svelte:head>
   <title>Web Dev Roadmap 2022</title>
@@ -6,72 +35,20 @@
 <h1>Roadmap for Web Development 2022</h1>
 
 <div class="timeline">
-  <div class="container left">
-    <a href="/devpath/General">
-      <div class="content">
-        <h2>General</h2>
-        <p>
-          Elementos de la web que son utiles en cualquier fase del desarrollo
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="container right">
-    <a href="/devpath/FrontEnd">
-      <div class="content">
-        <h2>FrontEnd</h2>
-        <p>
-          Front End es la parte de una aplicación que interactúa con los
-          usuarios, es conocida como el lado del cliente. Básicamente es todo lo
-          que vemos en la pantalla cuando accedemos a un sitio web o aplicación:
-          tipos de letra, colores, adaptación para distintas pantallas(RWD), los
-          efectos del ratón, teclado, movimientos, desplazamientos, efectos
-          visuales… y otros elementos que permiten navegar dentro de una página
-          web. Este conjunto crea la experiencia del usuario.
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="container left">
-    <a href="/devpath/BackEnd">
-      <div class="content">
-        <h2>BackEnd</h2>
-        <p>
-          El back end del sitio web consiste en un servidor, una aplicación y
-          una base de datos. Se toman los datos, se procesa la información y se
-          envía al usuario. Los desarrolladores de Front end y Back end suelen
-          trabajar juntos para que todo funcione correctamente.
-        </p>
-      </div>
-    </a>
-  </div>
-  <div class="container right">
-    <a href="/devpath/DevOps">
-      <div class="content">
-        <h2>DevOps</h2>
-        <p>
-          DevOps (acrónimo inglés de development -desarrollo- y operations
-          -operaciones-) es un conjunto de prácticas que agrupan el desarrollo
-          de software ( Dev ) y las operaciones de TI ( Ops ). Su objetivo es
-          hacer más rápido el ciclo de vida del desarrollo de software y
-          proporcionar una entrega continua de alta calidad. DevOps es una
-          práctica complementaria al desarrollo de software ágil ; esto debido a
-          que varias de las características de DevOps provienen de la
-          metodología Agile (término en inglés para la metodologÍa de desarrollo
-          ágil).
-        </p>
-      </div>
-    </a>
-  </div>
+  {#each devPaths as devPath}
+    <div class="container {devPath.order %2 == 0 ? 'right' : 'left'}">
+      <a href="/devpath/{devPath.name}">
+        <div class="content">
+          <h2>{devPath.name}</h2>
+          <p>
+            {devPath.description}
+          </p>  
+        </div>
+      </a>
+    </div>
+  {/each}
 </div>
 
-<!-- {#each techs as tech}
-  <p>
-    <a href="/tech/{tech.slug}">
-      {tech.name}
-    </a>
-  </p>
-{/each} -->
 <style>
   * {
     box-sizing: border-box;
@@ -166,7 +143,7 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: transform 0.2s;
   }
-  
+
   .content:hover {
     transform: scale(1.05);
   }
