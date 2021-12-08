@@ -1,8 +1,6 @@
 <script>
     import {fly} from 'svelte/transition'
     export let tech
-    console.log(tech)
-    // const tech = JSON.parse(data)
     export let i
 </script>
   <a href="/tech/{tech.slug}" in:fly="{{ y: 200, duration: 500 , delay:i*100}}" >
@@ -11,7 +9,7 @@
         <img src={tech.image.url} alt="Logotipo de {tech.name}" />
       </div>
       <div class="card-body">
-        <h4>{tech.name}</h4>
+        <h3>{tech.name}</h3>
         <p>{tech.descShort}</p>
       </div>
     </div>
@@ -56,7 +54,7 @@ a:hover{
 }
 
 .card-body p {
-  font-size: 13px;
+  /* font-size: 13px; */
   margin: 0 0 40px;
 }
 
