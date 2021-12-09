@@ -131,10 +131,6 @@ h2{
 .container {
   margin-inline: auto;
   width: 90%;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  flex-wrap: wrap; */
 }
 .category{
   display: flex;
