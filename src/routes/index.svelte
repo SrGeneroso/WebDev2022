@@ -148,8 +148,8 @@
     transform: scale(1.05);
   }
 
-  /* Media queries - Responsive timeline on screens less than 600px wide */
-  @media screen and (max-width: 600px) {
+  /* Media queries - Responsive timeline on screens less than 800px wide */
+  @media screen and (max-width: 800px) {
     /* Place the timelime to the left */
     .timeline::after {
       left: 31px;
