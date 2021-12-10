@@ -1,9 +1,5 @@
 <script>
 	import { page } from "$app/stores";
-	import logoWebdevLight from "./image/logo-webdev-light.png";
-	import logoWebdevDark from "./image/logo-webdev-dark.png";
-	import logoGitLight from "./image/logo-git-light.png";
-	import logoGitDark from "./image/logo-git-dark.png";
 	import ThemeButton from "./themeButton.svelte";
 	import { currentTheme } from '../../stores.js';
 	
@@ -17,9 +13,9 @@
 		<!-- TODO put url of Netlify deployment -->
 		<a href="https://webdev2022.netlify.app/">
 			{#if $currentTheme === 'light'}
-				<img src="{logoWebdevLight}" alt="WebDev 2022" />
+				<img src="/images/logo-webdev-light.png" alt="WebDev 2022" />
 			{:else}
-				<img src="{logoWebdevDark}" alt="WebDev 2022" />
+				<img src="/images/logo-webdev-dark.png" alt="WebDev 2022" />
 			{/if}
 		</a>
 	</div>
@@ -46,9 +42,9 @@
 
 		<a href="https://github.com/SrGeneroso/WebDev2022" target="_blank">			
 			{#if $currentTheme === 'light'}
-				<img src="{logoGitLight}" alt="Repo WebDev 2022" />
+				<img src="/images/logo-git-light.png" alt="Repo WebDev 2022" />
 			{:else}
-				<img src="{logoGitDark}" alt="Repo WebDev 2022" />
+				<img src="/images/logo-git-dark.png" alt="Repo WebDev 2022" />
 			{/if}
 		</a>
 	</div>
