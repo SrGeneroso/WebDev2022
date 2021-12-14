@@ -21,19 +21,20 @@
           repoUrl
           image {
             url
+              (transformation:{
+                image:{resize:{width: 500, fit:clip}}
+                document: {output: { format: webp }} 
+              })
           }
           resourceMain {
             name
             url
             image{
               url
-            }
-          }
-          resourcesExtra {
-            name
-            url
-            image{
-              url
+                (transformation:{
+                  image:{resize:{width: 500, fit:clip}}
+                  document: {output: { format: webp }} 
+                })
             }
           }
         }
@@ -116,6 +117,7 @@
 img{
   max-width: 100%;
   display: block;
+  object-fit: contain;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -196,6 +198,10 @@ img{
   height: auto;
   aspect-ratio: 1;
   border-radius: 5%;
+}
+.resource{
+  display: flex;
+  justify-content: center;
 }
 .resource h4{
   margin-top: 1rem;

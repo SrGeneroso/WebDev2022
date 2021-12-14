@@ -16,19 +16,11 @@
   </a>
 
 <style>
-  @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-* {
-  box-sizing: border-box;
-  transition: all .2s ease-in-out;
-}
 
-
-h4{
-  color: var(--text-color);
-}
 a:hover{
   transform: scale(1.05);
 }
+
 
 .card {
   margin: 0.5rem;
@@ -41,8 +33,8 @@ a:hover{
 }
 .card-header img {
   width: 100%;
-  height: 200px;
-  object-fit: cover;
+  padding-top: 1.5rem;
+  
 }
 .card-body {
   display: flex;
