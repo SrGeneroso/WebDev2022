@@ -24,7 +24,8 @@
                   descShort
                   image {
                     url(transformation:{
-                      image:{resize:{width: 300, height: 300, fit:scale}}
+                      image:{resize:{width: 300, height: 300, fit:clip}}
+                      document: {output: { format: webp }} 
                     })
                   }
                 }
@@ -36,7 +37,8 @@
               descShort
               image {
                 url(transformation:{
-                  image:{resize:{width: 300, height: 300, fit:scale}}
+                  image:{resize:{width: 300, height: 300, fit:clip}}
+                  document: {output: { format: webp }} 
                 })
               }
             }
