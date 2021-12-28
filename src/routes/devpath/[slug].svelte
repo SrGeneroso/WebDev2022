@@ -1,70 +1,22 @@
 <script context="module">
-  import { GraphQLClient } from "graphql-request";
-  
-  export async function load(ctx) {
-    const graphcms = new GraphQLClient(
-      "https://api-eu-central-1.graphcms.com/v2/ckwgsqn0x0kb801xo4jwobqkg/master",
-      {headers: {}}
-    );
-    const slugName = ctx.page.params.slug;
-
-    const { categories } = await graphcms.request(
-      `query categories ($currentSlug: String) {
-        categories (where: {devPath: {name: $currentSlug}}){
-          name
-          branch {
-            __typename
-            ... on Category {
-              id
-              name
-              branch {
-                ... on Tech {
-                  slug
-                  name
-                  descShort
-                  image {
-                    url(transformation:{
-                      image:{resize:{width: 300, height: 300, fit:clip}}
-                      document: {output: { format: webp }} 
-                    })
-                  }
-                }
-              }
-            }
-            ... on Tech {
-              slug
-              name
-              descShort
-              image {
-                url(transformation:{
-                  image:{resize:{width: 300, height: 300, fit:clip}}
-                  document: {output: { format: webp }} 
-                })
-              }
-            }
-          }
-        }
-      }`,
-      {
-        currentSlug: ctx.page.params.slug,
-      }
-    );
+  export async function load({ page, fetch }) {
+    const slug = page.params.slug;
+    const categories = await fetch(`${slug}.json`)
+        .then((r) => r.json());
 
     return {
       props: {
         categories,
-        slugName
-      },
+        slug
+      }
     };
-
   }
-  
 </script>
 
 <script>
   import TechCard from '$lib/techCard/TechCard.svelte';
   export let categories;
-  export let slugName;
+  export let slug;
 </script>
 
 <svelte:head>
@@ -74,7 +26,7 @@
  
 <div class="container" >
   
-  <h1 class="text-center"> Follow the {slugName} path</h1>
+  <h1 class="text-center"> Follow the {slug} path</h1>
   
   {#each categories as category}
   
