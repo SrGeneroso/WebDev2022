@@ -1,7 +1,7 @@
 <script></script>
 
 <footer>
-	<p>Site created by Alfonso Generoso using <a href="https://kit.svelte.dev">kit.svelte.dev</a></p>
+	<p>Site created by Alfonso Generoso using <a href="https://kit.svelte.dev" rel="noopener" target="_blank">kit.svelte.dev</a></p>
 </footer>
 
 <style>

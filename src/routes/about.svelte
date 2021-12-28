@@ -22,7 +22,7 @@
 	<h1>About this app</h1>
 
 	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
+		This is a <a href="https://kit.svelte.dev" rel="noopener" target="_blank">SvelteKit</a> app. You can make your own by typing the
 		following into your command line and following the prompts:
 	</p>
 
