@@ -1,82 +1,18 @@
-<!-- <script context="module">
-  import { GraphQLClient } from "graphql-request";
-
-  export async function load(ctx) {
-    const graphcms = new GraphQLClient(
-      "https://api-eu-central-1.graphcms.com/v2/ckwgsqn0x0kb801xo4jwobqkg/master",
-      {
-        headers: {},
-      }
-    );
-    const { tech } = await graphcms.request(
-      `query singleItem ($slug: String!){
-        tech(where: {slug: $slug}) {
-          id
-          name
-          descShort
-          descLong
-          homePageUrl
-          wikipediaUrl
-          stackshareUrl
-          repoUrl
-          image {
-            url
-              (transformation:{
-                image:{resize:{width: 500, fit:clip}}
-                document: {output: { format: webp }} 
-              })
-          }
-          resourceMain {
-            name
-            url
-            image{
-              url
-                (transformation:{
-                  image:{resize:{width: 500, fit:clip}}
-                  document: {output: { format: webp }} 
-                })
-            }
-          }
-        }
-      }`,
-      {
-        slug: ctx.page.params.slug,
-      }
-    );
-    return {
-      props: {
-        tech,
-      },
-    };
-  }
-</script> -->
-
 <script context="module">
-  // export async function load({ page, fetch, session, stuff }) {
-	// 	// const url = `/blog/${page.params.slug}.json`;
-  //   console.log();
-	// 	const res = await fetch("slug.json", page.params.slug);
-  // }
-  export const load = async ({ page, fetch }) => {
-    console.log(page.params.slug)
-    const data = page.params.slug;
-    const res = await fetch ("[slug].json");
-    const tech = await res.json();
-    console.log("from res");
-    console.log(tech);
+  export async function load({ page, fetch }) {
+    const slug = page.params.slug;
+    const tech = await fetch(`${slug}.json`)
+        .then((r) => r.json());
     return {
-      props: {
-        tech,
-      }
-    }
+      props: { tech }
+    };
   }
 </script>
 
-<!-- <script>
+<script>
   import { currentTheme } from '../../stores.js';
   export let tech;
   import {fly} from 'svelte/transition';
-import { page } from '$app/stores';
 </script>
 
 <svelte:head>
@@ -241,4 +177,4 @@ img{
 .description h2{
   font-size: 1.5rem;
 }
-</style> -->
+</style>
