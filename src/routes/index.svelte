@@ -15,6 +15,7 @@
 
 <svelte:head>
   <title>Web Dev Roadmap 2022</title>
+  <meta name="description" content="Web development roadmap 2022">
 </svelte:head>
 
 <h1>Roadmap for Web Development 2022</h1>
