@@ -20,7 +20,8 @@
 </script>
 
 <svelte:head>
-  <title>WebDev 2022</title>
+  <title>WebDev 2022 - {slug}</title>
+  <meta name="description" content="Web Development path {slug}">
 </svelte:head>
 
  

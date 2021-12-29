@@ -17,6 +17,7 @@
 
 <svelte:head>
   <title>{tech.name} - WebDev 2022</title>
+  <meta name="description" content="Web Development - {tech.name}">
 </svelte:head>
 <div class="container" in:fly="{{ x: 200, duration: 500 , delay:100}}">
   
