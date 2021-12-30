@@ -25,34 +25,34 @@
   
   <div class="links">
     {#if tech.homePageUrl}
-    <a href="{tech.homePageUrl}" target="_blank">
-      <img src="/images/logo-homepage.png" alt="Home Page of {tech.name}" />
+    <a href="{tech.homePageUrl}" target="_blank" rel="noopener">
+      <img src="/images/logo-homepage.webp" alt="Home Page of {tech.name}" />
     </a>
     {/if}
     {#if tech.wikipediaUrl}
-      <a href="{tech.wikipediaUrl}" target="_blank">
-        <img src="/images/logo-wikipedia.png" alt="Wikipedia entry of {tech.name}" />
+      <a href="{tech.wikipediaUrl}" target="_blank" rel="noopener">
+        <img src="/images/logo-wikipedia.webp" alt="Wikipedia entry of {tech.name}" />
       </a>
     {/if}
     {#if tech.repoUrl}
-      <a href="{tech.repoUrl}" target="_blank">
+      <a href="{tech.repoUrl}" target="_blank" rel="noopener">
         {#if $currentTheme === 'light'}
-          <img src="/images/logo-git-light.png" alt="Repository of {tech.name}" />
+          <img src="/images/logo-git-light.webp" alt="Repository of {tech.name}" />
         {:else}
-          <img src="/images/logo-git-dark.png" alt="Repository of {tech.name}" />
+          <img src="/images/logo-git-dark.webp" alt="Repository of {tech.name}" />
         {/if}
       </a>
     {/if}
     
     {#if tech.stackshareUrl}
-      <a href="{tech.stackshareUrl}" target="_blank">
-        <img src="/images/logo-stackshare.png" alt="Stackshare.io of {tech.name}" />
+      <a href="{tech.stackshareUrl}" target="_blank" rel="noopener">
+        <img src="/images/logo-stackshare.webp" alt="Stackshare.io of {tech.name}" />
       </a>
     {/if}    
   </div>
   
   <div class="hero-image" >
-    <img src="{tech.image.url}" alt="{tech.image.name}">
+    <img src="{tech.image.url}" alt="{tech.name}">
   </div>
   
   <div class="description">
@@ -61,9 +61,9 @@
   </div>
   
   <div class="resource">
-    <a href="{tech.resourceMain.url}" target="_blank">
-      <img src="{tech.resourceMain.image.url}" alt="">
-      <h4> {tech.resourceMain.name} </h4>
+    <a href="{tech.resourceMain.url}" target="_blank" rel="noopener">
+      <img src="{tech.resourceMain.image.url}" alt="{tech.resourceMain.name}">
+      <h3> {tech.resourceMain.name} </h3>
     </a>
   </div>
 
@@ -143,6 +143,7 @@ img{
 }
 .links img {
   width: 3rem;
+  height: 500;
   aspect-ratio: 1;
   border-radius: 50%;
 }
@@ -154,7 +155,7 @@ img{
 }
 .hero-image img{
   width: 90%;
-  height: auto;
+  height: 500;
   aspect-ratio: 1;
   border-radius: 5%;
 }
@@ -162,9 +163,14 @@ img{
   display: flex;
   justify-content: center;
 }
-.resource h4{
+.resource h3{
   margin-top: 1rem;
   text-align: center;
+}
+
+.resource img{
+  width: 100%;
+  height: 500;
 }
 
 .description{
