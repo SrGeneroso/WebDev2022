@@ -13,9 +13,9 @@
 		<!-- TODO put url of Netlify deployment -->
 		<a href="https://webdev2022.netlify.app/" rel="noopener">
 			{#if $currentTheme === 'light'}
-				<img src="/images/logo-webdev-light.png" alt="WebDev 2022" />
+				<img src="/images/logo-webdev-light.webp" alt="WebDev 2022" />
 			{:else}
-				<img src="/images/logo-webdev-dark.png" alt="WebDev 2022" />
+				<img src="/images/logo-webdev-dark.webp" alt="WebDev 2022" />
 			{/if}
 		</a>
 	</div>
@@ -42,9 +42,9 @@
 
 		<a href="https://github.com/SrGeneroso/WebDev2022" rel="noopener" target="_blank">			
 			{#if $currentTheme === 'light'}
-				<img src="/images/logo-git-light.png" alt="Repo WebDev 2022" />
+				<img src="/images/logo-git-light.webp" alt="Repo WebDev 2022" />
 			{:else}
-				<img src="/images/logo-git-dark.png" alt="Repo WebDev 2022" />
+				<img src="/images/logo-git-dark.webp" alt="Repo WebDev 2022" />
 			{/if}
 		</a>
 	</div>

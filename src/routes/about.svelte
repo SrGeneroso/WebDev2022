@@ -16,6 +16,7 @@
 
 <svelte:head>
 	<title>About</title>
+	<meta name="description" content="About Web development roadmap 2022">
 </svelte:head>
 
 <div class="content">

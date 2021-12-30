@@ -26,7 +26,7 @@ export async function get({params}) {
                 descShort
                 image {
                   url(transformation:{
-                    image:{resize:{width: 300, height: 300, fit:clip}}
+                    image:{resize:{width: 500, height: 500, fit:clip}}
                     document: {output: { format: webp }} 
                   })
                 }
@@ -39,7 +39,7 @@ export async function get({params}) {
             descShort
             image {
               url(transformation:{
-                image:{resize:{width: 300, height: 300, fit:clip}}
+                image:{resize:{width: 500, height: 500, fit:clip}}
                 document: {output: { format: webp }} 
               })
             }

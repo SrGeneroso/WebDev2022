@@ -31,9 +31,17 @@ a:hover{
   width: 15em;
   
 }
+
+.card-header{
+  display: flex;
+  justify-content: center;
+}
+
 .card-header img {
-  width: 100%;
-  padding-top: 1.5rem;
+  width: 90%;
+  height: 500;
+  margin-top: 1rem;
+  border-radius: 5%;
   
 }
 .card-body {
@@ -46,7 +54,6 @@ a:hover{
 }
 
 .card-body p {
-  /* font-size: 13px; */
   margin: 0 0 40px;
 }
 
