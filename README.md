@@ -1,31 +1,23 @@
-# GraphCMS ⨯ SvelteKit ⨯ GraphQL Request
+# Web Development Roadmap 2022
 
-[Join our Slack](https://slack.graphcms.com)
+[SiteURL](https://webdev2022.netlify.app/)
 
-This example shows how to use the SvelteKit and GraphQL Request with
-GraphCMS.
-
-•
-[Demo](https://graphcms-with-sveltekit-and-graphql-request.vercel.app/)
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/GraphCMS/graphcms-examples/tree/master/with-sveltekit-and-graphql-request)
+This app was a study into modern web development technologies.
 
 ## How to Use
 
 ### Download Manually
 
 ```bash
-npx degit graphcms/graphcms-examples/with-sveltekit-and-graphql-request with-sveltekit-and-graphql-request
+npx degit SrGeneroso/WebDev2022 your-app-name
 ```
 
 Install & Run:
 
 ```bash
-cd with-sveltekit-and-graphql-request
+cd your-app-name
 npm install
 npm run dev -- --open
 ```
 
-### Run on Codesandbox
-
-[![Develop with Codesandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/GraphCMS/graphcms-examples/tree/master/with-sveltekit-and-graphql-request)
+*This app was built upon [graphcms/graphcms-examples/with-sveltekit-and-graphql-request](https://github.com/GraphCMS/graphcms-examples/tree/master/with-sveltekit-and-graphql-request)
